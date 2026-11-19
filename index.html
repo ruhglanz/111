@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Revise With Confidence</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section id="page-welcome" class="page active">
+
+  <div class="welcome-container">
+
+    <div class="welcome-card glass">
+
+      <button
+        class="welcome-logo"
+        onclick="navigateTo('welcome')"
+        title="Go to Home"
+      >
+        <i class="fa-solid fa-book-open-reader"></i>
+        <span>Revise With Confidence</span>
+      </button>
+
+      <h1>Welcome</h1>
+
+      <p class="welcome-subtitle">
+        An all-in-one student research & revision tool.
+      </p>
+
+      <div class="welcome-desc">
+        Access ready-made pre-written notes for Year 9-12 subjects,
+        highlight key ideas, search & translate text, create your own
+        custom notes and export everything to PDF.
+      </div>
+
+      <div class="welcome-feature-list">
+
+        <div class="welcome-feature glass-soft">
+          <i class="fa-solid fa-book"></i>
+          <span>Pre-written Subject Notes</span>
+        </div>
+
+        <div class="welcome-feature glass-soft">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>Custom Note-Taking</span>
+        </div>
+
+        <div class="welcome-feature glass-soft">
+          <i class="fa-solid fa-highlighter"></i>
+          <span>Text Highlight Tool</span>
+        </div>
+
+        <div class="welcome-feature glass-soft">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>Export to PDF</span>
+        </div>
+
+        <div class="welcome-feature glass-soft">
+          <i class="fa-solid fa-moon"></i>
+          <span>Dark Mode Support</span>
+        </div>
+
+      </div>
+
+      <button
+        class="btn big-btn"
+        onclick="navigateTo('dashboard')"
+      >
+        <i class="fas fa-arrow-right"></i>
+        Get Started
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<nav id="main-nav" class="glass">
+
+  <button
+    class="app-logo"
+    onclick="navigateTo('welcome')"
+    title="Home"
+  >
+
+    <i class="fa-solid fa-book-open-reader"></i>
+
+    <span>Revise</span>
+
+  </button>
+
+  <div class="nav-links">
+
+    <button
+      class="nav-link"
+      data-page="dashboard"
+      title="Dashboard"
+    >
+      <i class="fas fa-house-chimney"></i>
+      <span>Dashboard</span>
+    </button>
+
+
+    <button
+      class="nav-link"
+      data-page="subjects"
+      title="Subjects"
+    >
+      <i class="fas fa-book"></i>
+      <span>Subjects</span>
+    </button>
+
+
+    <button
+      class="nav-link"
+      data-page="notes"
+      title="Revision Notes"
+    >
+      <i class="fas fa-file-lines"></i>
+      <span>Revise Note</span>
+    </button>
+
+
+    <button
+      class="nav-link"
+      data-page="createnote"
+      title="Take Note"
+    >
+      <i class="fas fa-note-sticky"></i>
+      <span>Take Note</span>
+    </button>
+
+
+    <button
+      class="nav-link"
+      data-page="export"
+      title="Export PDF"
+    >
+      <i class="fas fa-file-pdf"></i>
+      <span>Export PDF</span>
+    </button>
+
+    <button
+      id="darkModeToggle"
+      class="dark-mode-button"
+      title="Toggle Dark Mode"
+      type="button"
+    >
+      <i class="fas fa-moon"></i>
+      <span>Dark Mode</span>
+    </button>
+
+  </div>
+
+</nav>
+
+<section id="page-dashboard" class="page">
+
+  <div class="card glass">
+
+    <div class="dashboard-heading">
+
+      <div>
+
+        <span class="eyebrow">
+          <i class="fas fa-sparkles"></i>
+          STUDY SPACE
+        </span>
+
+        <h1>Dashboard</h1>
+
+        <p class="subhead">
+          Access pre-written notes or create your own notes.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div
+        class="feature-item clickable-card glass-soft"
+        data-goto="subjects"
+      >
+        <i class="fas fa-book-open"></i>
+
+        <div>
+          <strong>Browse subject notes</strong>
+          <small>Find ready-made revision notes</small>
+        </div>
+      </div>
+
+
+      <div
+        class="feature-item clickable-card glass-soft"
+        data-goto="createnote"
+      >
+        <i class="fas fa-pen-fancy"></i>
+
+        <div>
+          <strong>Take custom notes</strong>
+          <small>Create your own study notes</small>
+        </div>
+      </div>
+
+
+      <div
+        class="feature-item clickable-card glass-soft"
+        data-goto="notes"
+      >
+        <i class="fas fa-highlighter"></i>
+
+        <div>
+          <strong>Highlight key points</strong>
+          <small>Mark important information</small>
+        </div>
+      </div>
+
+
+      <div
+        class="feature-item clickable-card glass-soft"
+        data-goto="export"
+      >
+        <i class="fas fa-file-pdf"></i>
+
+        <div>
+          <strong>Export as PDF</strong>
+          <small>Save your revision notes</small>
+        </div>
+      </div>
+
+      <button
+        id="dashboardDarkMode"
+        class="feature-item dashboard-dark-card glass-soft"
+        type="button"
+      >
+
+        <i
+          id="dashboardDarkIcon"
+          class="fas fa-moon"
+        ></i>
+
+        <div>
+
+          <strong id="dashboardDarkTitle">
+            Dark mode
+          </strong>
+
+          <small id="dashboardDarkSubtitle">
+            Switch between light and dark
+          </small>
+
+        </div>
+
+      </button>
+
+    </div>
+
+
+    <div class="dashboard-actions">
+
+      <button
+        class="btn"
+        onclick="navigateTo('subjects')"
+      >
+        <i class="fas fa-book"></i>
+        Browse Subjects Notes
+      </button>
+
+
+      <button
+        class="btn btn-outline"
+        onclick="navigateTo('createnote')"
+      >
+        <i class="fas fa-plus"></i>
+        Take New Note
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="page-subjects" class="page">
+
+  <div class="card glass">
+
+    <h2>Subjects</h2>
+
+    <p class="subhead">
+      First select your year, then choose a subject to view
+      ready-made notes.
+    </p>
+
+
+    <div class="year-select-area">
+
+      <h4>Select Year</h4>
+
+      <div
+        class="year-btn-group"
+        id="yearBtnGroup"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="subjectSection"
+      class="subject-section"
+    >
+
+      <h4>
+        Select Subject for
+        <span id="selectedYearDisplay"></span>
+      </h4>
+
+      <div
+        class="subject-list"
+        id="subjectList"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="subjectMessage"
+      class="subject-message"
+    ></div>
+
+  </div>
+
+</section>
+
+<section id="page-notes" class="page">
+
+  <div class="card glass">
+
+    <div class="notes-heading">
+
+      <h2 id="notesSubjectTitle">
+        Revision notes
+      </h2>
+
+
+      <div class="note-badges">
+
+        <span
+          id="currentYearBadge"
+          class="badge year-badge"
+        ></span>
+
+        <span
+          id="currentSubjectBadge"
+          class="badge subject-badge"
+        ></span>
+
+      </div>
+
+    </div>
+
+
+    <div class="note-toolbar glass-soft">
+
+      <button
+        id="editToggleBtn"
+        class="active-tool"
+      >
+        <i class="fas fa-lock"></i>
+        Edit mode
+      </button>
+
+
+      <button
+        id="highlightBtn"
+        disabled
+      >
+        <i class="fas fa-highlighter"></i>
+        Highlight
+      </button>
+
+
+      <button
+        id="removeSingleHighlightBtn"
+        disabled
+      >
+        <i class="fas fa-times-circle"></i>
+        Remove single highlight
+      </button>
+
+
+      <button
+        id="clearHighlightBtn"
+        disabled
+      >
+        <i class="fas fa-eraser"></i>
+        Clear all highlights
+      </button>
+
+
+      <button id="resetNoteBtn">
+
+        <i class="fas fa-undo-alt"></i>
+        Reset note
+
+      </button>
+
+    </div>
+
+
+    <div
+      id="noteEditor"
+      class="editable-note disabled glass-soft"
+      contenteditable="false"
+    ></div>
+
+
+    <p class="info-text">
+
+      <i class="fas fa-info-circle"></i>
+
+      Enable Edit mode. Select text for translate,
+      search or remove-highlight menu.
+
+    </p>
+
+  </div>
+
+</section>
+
+<section id="page-createnote" class="page">
+
+  <div class="apple-notes glass">
+
+    <aside class="apple-sidebar glass-soft">
+
+      <div class="apple-sidebar-top">
+
+        <div class="apple-brand">
+
+          <i class="fa-solid fa-note-sticky"></i>
+
+          <span>Notes</span>
+
+        </div>
+
+
+        <button
+          id="newBlankNoteBtn"
+          class="apple-new-btn"
+          title="New Note"
+        >
+          <i class="fa-solid fa-square-pen"></i>
+        </button>
+
+      </div>
+
+
+      <div class="apple-search glass-inner">
+
+        <i class="fas fa-search"></i>
+
+        <input
+          type="text"
+          id="noteSearchInput"
+          placeholder="Search"
+        >
+
+      </div>
+
+
+      <div class="apple-sidebar-section">
+
+        <button
+          id="allNotesFolder"
+          class="apple-folder active-folder"
+          type="button"
+        >
+
+          <i class="fa-solid fa-note-sticky"></i>
+
+          <span>All Notes</span>
+
+          <span
+            id="noteCount"
+            class="folder-count"
+          >
+            0
+          </span>
+
+        </button>
+
+
+        <button
+          id="pinnedNotesFolder"
+          class="apple-folder"
+          type="button"
+        >
+
+          <i class="fa-solid fa-thumbtack"></i>
+
+          <span>Pinned</span>
+
+        </button>
+
+      </div>
+
+
+    </aside>
+
+    <aside class="apple-note-list glass-soft">
+
+      <div class="apple-note-list-header">
+
+        <div>
+
+          <h2>Notes</h2>
+
+          <p id="noteListSubtitle">
+            All Notes
+          </p>
+
+        </div>
+
+
+        <button
+          id="newBlankNoteBtn2"
+          class="apple-icon-btn"
+          title="New Note"
+        >
+          <i class="fa-solid fa-square-pen"></i>
+        </button>
+
+      </div>
+
+
+      <div
+        id="customNoteListWrap"
+        class="apple-notes-list-container"
+      ></div>
+
+    </aside>
+
+    <main class="apple-editor">
+
+      <div class="apple-editor-top">
+
+        <button
+          id="deleteCurrentNoteBtn"
+          class="apple-editor-icon delete-note-btn"
+          title="Delete Note"
+        >
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+
+
+        <div class="apple-editor-actions">
+
+          <button
+            id="togglePinNoteBtn"
+            class="apple-editor-icon"
+            title="Pin Note"
+            type="button"
+          >
+            <i class="fa-solid fa-thumbtack"></i>
+          </button>
+
+          <button
+            id="saveCustomNoteBtn"
+            class="apple-editor-icon"
+            title="Save"
+            type="button"
+          >
+            <i class="fa-solid fa-check"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="apple-writing-area">
+
+        <input
+          id="noteTitleInput"
+          class="apple-title-input"
+          placeholder="Title"
+          autocomplete="off"
+        >
+
+
+        <div
+          id="customNoteArea"
+          class="apple-note-content"
+          contenteditable="true"
+          data-placeholder="Start writing..."
+        ></div>
+
+      </div>
+
+
+      <div class="apple-editor-bottom">
+
+        <span id="noteLastSaved" aria-live="polite">
+          Saved automatically
+        </span>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</section>
+
+<div
+  id="textSelectPopup"
+  class="text-select-popup glass"
+>
+
+  <button id="popupTranslateBtn">
+
+    <i class="fas fa-language"></i>
+    Translate
+
+  </button>
+
+
+  <button id="popupSearchBtn">
+
+    <i class="fas fa-search"></i>
+    Google Search
+
+  </button>
+
+
+  <button id="popupRemoveHighlightBtn">
+
+    <i class="fas fa-times"></i>
+    Remove highlight
+
+  </button>
+
+</div>
+
+<section id="page-export" class="page">
+
+  <div class="card glass">
+
+    <h2>Export your revision notes</h2>
+
+    <p class="subhead">
+      Preview and download notes as PDF.
+    </p>
+
+
+    <div
+      id="exportPreview"
+      class="export-preview glass-soft"
+    ></div>
+
+
+    <div class="export-actions">
+
+      <button
+        id="exportPdfBtn"
+        class="btn"
+      >
+        <i class="fas fa-file-pdf"></i>
+        Download PDF
+      </button>
+
+
+      <button
+        id="refreshExportBtn"
+        class="btn btn-outline"
+      >
+        <i class="fas fa-sync-alt"></i>
+        Refresh preview
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer-notes">
+
+  <i class="fas fa-graduation-cap"></i>
+
+  Revise With Confidence ·
+  All-in-one student research & note-taking tool
+
+</footer>
+
+<!-- Custom Confirm Modal -->
+<div id="customConfirmModal" class="modal-overlay">
+  <div class="modal-box glass">
+    <h3 id="modalTitle">Confirm</h3>
+    <p id="modalMessage"></p>
+    <div class="modal-buttons">
+      <button id="modalCancel" class="btn btn-outline">Cancel</button>
+      <button id="modalConfirm" class="btn danger-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div
+  id="noteStatusToast"
+  class="note-status-toast"
+  role="status"
+  aria-live="polite"
+></div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
